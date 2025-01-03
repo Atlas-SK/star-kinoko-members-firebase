@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Star Kinoko member manager">
+    <title>Star Kinoko member manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Star Kinoko member manager</h1>
+        <button id="atlas-add-member-btn">Add Member</button>
+    </header>
+
+    <main>
+        <section>
+            <h2>Active Members</h2>
+            <table class="atlas-table" aria-label="Active Members">
+                <thead>
+                    <tr>
+                        <th scope="col" class="sortable">Player Name</th>
+                        <th scope="col">Player ID</th>
+                        <th scope="col" class="sortable">Player Level</th>
+                        <th scope="col" class="sortable">Earnings</th>
+                        <th scope="col" class="sortable">Total Fellow Power</th>
+                        <th scope="col" class="sortable">Highest Fellow</th>
+                        <th scope="col" class="sortable">Lowest Fellow</th>
+                        <th scope="col">Manage</th>
+                    </tr>
+                </thead>
+                <tbody id="atlas-active-members-body">
+                    <!-- Active members will be dynamically generated here -->
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Retired Members</h2>
+            <table class="atlas-table" aria-label="Retired Members">
+                <thead>
+                    <tr>
+                        <th scope="col" class="sortable">Player Name</th>
+                        <th scope="col">Player ID</th>
+                        <th scope="col" class="sortable">Player Level</th>
+                        <th scope="col" class="sortable">Earnings</th>
+                        <th scope="col" class="sortable">Total Fellow Power</th>
+                        <th scope="col" class="sortable">Highest Fellow</th>
+                        <th scope="col" class="sortable">Lowest Fellow</th>
+                        <th scope="col">Manage</th>
+                    </tr>
+                </thead>
+                <tbody id="atlas-retired-members-body">
+                    <!-- Retired members will be dynamically generated here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Modal for adding/editing members -->
+    <div id="atlas-member-modal" class="atlas-modal" hidden>
+        <div class="atlas-modal-content" role="dialog" aria-labelledby="atlas-modal-title" aria-describedby="atlas-modal-description">
+            <h2 id="atlas-modal-title">Add/Edit Member</h2>
+            <form id="atlas-member-form">
+                <label for="player-name">Player Name</label>
+                <input type="text" id="player-name" name="player-name" required>
+
+                <label for="player-id">Player ID</label>
+                <input type="text" id="player-id" name="player-id" required>
+
+                <label for="player-level">Player Level</label>
+                <input type="number" id="player-level" name="player-level" required>
+
+                <label for="earnings">Earnings</label>
+                <input type="number" id="earnings" name="earnings" required>
+
+                <label for="total-fellow-power">Total Fellow Power</label>
+                <input type="number" id="total-fellow-power" name="total-fellow-power" required>
+
+                <label for="highest-fellow">Highest Fellow</label>
+                <input type="number" id="highest-fellow" name="highest-fellow" required>
+
+                <label for="lowest-fellow">Lowest Fellow</label>
+                <input type="number" id="lowest-fellow" name="lowest-fellow" required>
+
+                <button type="submit" id="atlas-save-member-btn">Save</button>
+                <button type="button" id="atlas-cancel-modal-btn">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="global.js"></script>
+</body>
+</html>

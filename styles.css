@@ -1,0 +1,233 @@
+/* Root Variables */
+:root {
+    --indigo50: #f9fafb;
+    --indigo100: #f0f1fa;
+    --indigo200: #ded9f5;
+    --indigo300: #beb3e5;
+    --indigo400: #a288d1;
+    --indigo500: #8763bf;
+    --indigo600: #6e47a5;
+    --indigo700: #52357f;
+    --indigo800: #372457;
+    --indigo900: #1f1632;
+
+    --background: var(--indigo900);
+    --textColor: #d1d5db;
+    --accent: var(--indigo500);
+    --accentHover: var(--indigo400);
+
+    --typeBody: 'Poppins', sans-serif;
+    --globalTrans: all 0.3s ease-in-out;
+}
+
+/* General Styles */
+body {
+    font-family: var(--typeBody);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    color: var(--textColor);
+    transition: var(--globalTrans);
+}
+
+header {
+    color: var(--indigo50);
+    padding: 1rem;
+    text-align: center;
+    border-radius: 10px;
+    margin: 1rem;
+}
+
+button {
+    font-size: 1rem;
+    font-family: var(--typeBody);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--accent);
+    color: var(--indigo50);
+    transition: var(--globalTrans);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button#atlas-add-member-btn {
+    font-size: 2rem;
+}
+
+button#atlas-add-member-btn:hover,
+button#atlas-add-member-btn:focus {
+    background-color: transparent;
+    color: var(--indigo100);
+}
+
+table button:hover,
+table button:focus {
+    background-color: var(--indigo900);
+    border-color: var(--indigo900);
+    color: var(--indigo100);
+}
+
+main {
+    padding: 1rem;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    text-align: center;
+    font-size: 3rem;
+}
+
+/* Table Styles */
+.atlas-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background-color: var(--indigo800);
+    color: var(--textColor);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.atlas-table th,
+.atlas-table td {
+    padding: 0.75rem;
+    border: 1px solid var(--indigo700);
+    text-align: left;
+}
+
+.atlas-table th:not(:first-child),
+.atlas-table td:not(:first-child) {
+    text-align: center;
+}
+
+.atlas-table th {
+    background-color: var(--indigo700);
+    font-weight: bold;
+}
+
+.atlas-table tbody tr:nth-child(even) {
+    background-color: var(--indigo800);
+}
+
+.atlas-table tbody tr:hover {
+    background-color: var(--indigo600);
+}
+
+th.sortable:after {
+    content: '';
+    background-color: var(--textColor);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    rotate: -90deg;
+    transition: var(--globalTrans);
+    -webkit-mask-image: url(images/chevron.svg);
+    mask-image: url(images/chevron.svg);   
+}
+
+th.sortable[data-sort="desc"]:after {
+    rotate: 0deg;
+}
+
+th.sortable[data-sort="asc"]:after {
+    rotate: -180deg;
+}
+
+/* Modal Styles */
+.atlas-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; /* Ensure it is not visible by default */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: var(--globalTrans);
+}
+
+.atlas-modal[hidden] {
+    display: none !important; /* Force hidden state if the attribute is set */
+}
+
+.atlas-modal:not([hidden]) {
+    display: flex; /* Only display as a modal when the hidden attribute is not present */
+}
+
+.atlas-modal-content {
+    background-color: var(--indigo800);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    color: var(--textColor);
+}
+
+.atlas-modal-content h2 {
+    margin-top: 0;
+    color: var(--indigo100);
+}
+
+.atlas-modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.atlas-modal-content label {
+    margin-top: 1rem;
+    font-weight: bold;
+    color: var(--indigo100);
+}
+
+.atlas-modal-content input {
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid var(--indigo600);
+    border-radius: 5px;
+    background-color: var(--indigo900);
+    color: var(--textColor);
+    transition: var(--globalTrans);
+    font-size: 1rem;
+    font-family: var(--typeBody);
+}
+
+.atlas-modal-content input:focus {
+    border-color: var(--accent);
+    outline: none;
+    -webkit-box-shadow:0px 0px 10px 5px rgba(190,179,229,1);
+    -moz-box-shadow: 0px 0px 10px 5px rgba(190,179,229,1);
+    box-shadow: 0px 0px 10px 5px rgba(190,179,229,1);
+}
+
+.atlas-modal-content button {
+    margin-top: 1rem;
+}
+
+.atlas-modal-content button#atlas-cancel-modal-btn {
+    background-color: #e74c3c;
+    color: white;
+    transition: var(--globalTrans);
+}
+
+.atlas-modal-content button#atlas-cancel-modal-btn:hover {
+    background-color: #c0392b;
+}
